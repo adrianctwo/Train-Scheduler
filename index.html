@@ -19,7 +19,42 @@
 </head>
 
 <body>
+    <div class="panel-body">
+        <div id="full-train-list">
+            <table class="table">
+                <thead id="column-headings">
+                    <tr>
+                        <td> Train Name </td>
+                        <td> Destination </td>
+                        <td> Frequency (min) </td>
+                        <td> Next Arrival </td>
+                        <td> Minutes Away </td>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </div>
 
+    <form role="form">
+        <div class="form-group">
+            <label for="name-input"> Train Name:</label>
+            <input class="form-control" id="name-input" type="text">
+        </div>
+        <div class="form-group">
+            <label for="destination-input">Destination:</label>
+            <input class="form-control" id="destination-input" type="destination">
+        </div>
+        <div class="form-group">
+            <label for="time-input">First Train Time (HH:mm-military time):</label>
+            <input class="form-control" id="time-input" type="time">
+        </div>
+        <div class="form-group">
+            <label for="frequency-input">Frequency(min)</label>
+            <input class="form-control" id="frequency-input">
+        </div>
+        <input class="btn btn-default" id="add-train" type="submit">
+    </form>
     <!--Jquery-->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
