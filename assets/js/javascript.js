@@ -36,23 +36,6 @@ var trainFreqsArray = [];
 
 $(document).ready(function () {
 
-    // method to display time
-    var updateClock = function () {
-        clock = $('#current-time');
-        // Using Moment to get the date
-        date = moment(new Date()).format('dddd, MMMM Do YYYY, h:mm:ss a');
-        clock.html('<p>' + date + '</p>');
-        var colon = date.indexOf(':');
-        var seconds = (date.substring(colon + 4, date.length - 3));
-        // update table for each new minute
-        if (seconds == '00') {
-            updateTable();
-        };
-    };
-    updateClock();
-    // Setting the interval to 1 sec
-    setInterval(updateClock, 1000);
-
     // Method to show time for next train
     function showTrains() {
         // time difference = current time - time of first train
@@ -74,7 +57,24 @@ $(document).ready(function () {
             " </td></tr>");
     };
 
+    // method to display time
+    var updateClock = function () {
+        clock = $('#current-time');
+        // Using Moment to get the date
+        date = moment(new Date()).format('dddd, MMMM Do YYYY, h:mm:ss a');
+        clock.html('<p>' + date + '</p>');
+        var colon = date.indexOf(':');
+        var seconds = (date.substring(colon + 4, date.length - 3));
+        // update table for each new minute
+        if (seconds == '00') {
+            updateTable();
+        };
+    };
+    updateClock();
+    // Setting the interval to 1 sec
+    setInterval(updateClock, 1000);
     // updates table with train info
+    
     function updateTable() {
         // empty table
         $("#table-body").empty();
@@ -117,7 +117,7 @@ $(document).ready(function () {
             alert("Please fill out all of the fields");
         }
     });
-    
+
     // Event listener triggers if a child is added to firebase
     data.ref().on("child_added", function (childSnapshot) {
         // pushes new values to arrays
